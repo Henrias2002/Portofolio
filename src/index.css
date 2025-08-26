@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+.gradient{
+    filter:drop-shadow(0 15px 5px rgb(136, 10, 226));
+    color:red;
+}
