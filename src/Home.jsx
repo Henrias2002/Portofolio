@@ -1,11 +1,29 @@
 import { Link } from "react-router-dom"
 import { Menu } from "lucide-react";
 import { X } from "lucide-react";
-import { useState,useEffect } from "react";
-
+import { useState,useEffect, version } from "react";
+import reactImg from "./assets/React.png"
+import tailwindImg from "./assets/Tailwindcss.png"
+import nextjsImg from "./assets/Nextjs.png"
+import typescriptImg from "./assets/Typescript.png"
+import gitImg from "./assets/Git.png"
+import djangoImg from "./assets/Django.png"
+import pythonImg from "./assets/Python.png"
+import githubImg from "./assets/GitHub.png"
+import postgresImg from "./assets/PostgresSQL.png"
+import mysqlImg from "./assets/MySQL.png"
+import linuxImg from "./assets/Linux.png"
+import FigmaImg from './assets/Figma.png';
+import dockerImg from './assets/Docker.png';
+import gitlabImg from './assets/GitLab.png';
+import digitalImg from './assets/DigitalOcean.png';
 
 export function Home(){
-    const sections = ['home','about','projects','contacts'];
+    const sections = ['home','about','technos','projects','contacts'];
+    const frontend = [tailwindImg,typescriptImg,reactImg,nextjsImg];
+    const backtend = [pythonImg,djangoImg,postgresImg,mysqlImg];
+    const extras = [FigmaImg,dockerImg,digitalImg,linuxImg];
+    const versionControl = [gitImg,githubImg,gitlabImg]
     const [isOpen,setIsOpen] = useState(false);
 
     useEffect(()=>{
@@ -16,7 +34,7 @@ export function Home(){
     }
     },[isOpen])
 
-    return <div className={`min-h-screen ${isOpen ? 'overflow-hidden':''}`}>
+    return <div className={`min-h-screen  ${isOpen ? 'overflow-hidden':''}`}>
 
             <header className="flex border-b-gray-900 shadow lg:border-b justify-between px-1 items-center h-[40px] fixed top-0 left-0 right-0 z-50 bg-gray-950  backdrop-blur-[20px]">
                 <div className="font-bold lg:text-lg  ">jeremie.<span className="text-blue-600 font-medium animate-pulse ">henri</span></div>
@@ -54,10 +72,10 @@ export function Home(){
                 </div>
 
                 <div className="flex justify-center space-x-3 lg:space-x-4">
-                    <a href="#" className="bg-gradient-to-r from-blue-600 to-indigo-400 h-[30px] lg:h-[35px]
+                    <a href="#projects" className="bg-gradient-to-r from-blue-600 to-indigo-400 h-[30px] lg:h-[35px]
                      flex items-center px-2 lg:px-4 rounded-full text-sm duration-200 ease-in-out hover:scale-105">Voir les projets</a>
                     
-                    <a href="#" className="bg-gradient-to-r  from-blue-600 to-indigo-400 h-[30px]lg:h-[35px]
+                    <a href="#contacts" className="bg-gradient-to-r  from-blue-600 to-indigo-400 h-[30px]lg:h-[35px]
                                         flex items-center px-2 lg:px-4 rounded text-sm relative after:flex
                                         after:absolute after:inset-[1px] after:rounded after:bg-gray-950
                                         after:text-white after:content-['contactez-moi'] after:justify-center
@@ -69,6 +87,68 @@ export function Home(){
 
             <section id="about" className="h-[500px] flex justify-center items-center">
                 <h1 className="text-center ">About</h1>
+               
+
+            </section>
+
+            <section id="technos" className=" px-2  lg:flex  lg:justify-between lg:items-center lg:flex-wrap ">
+                <div className="lg:h-[280px] p-2 lg:w-[45%] space-y-4 ">
+                    <h3 className=" font-bold text-lg lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent lg:mt-5 ">SKILLS <br className="hidden lg:block" />& <br className="hidden lg:block" /> TECHNOS</h3>
+                    
+                    <p className="text-medium text-sm text-justify ">les technologies que j'utilise dans mon quotidien de développeur <br/>
+                        pour la conception et l'implémentation de mes diverses projets.
+                    </p>
+                </div>
+                
+               
+                <div className="flex flex-col items-center lg:w-[50%]  lg:grid lg:grid-cols-2 lg:items-baseline lg:justify-center mt-6 space-y-4 lg:space-x-4">
+                    <div className="h-[120px] duration-200 ease-in hover:bg-gray-700   max-w-[90%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                        <div className="text-left text-orange-300">Frontend</div>
+                        
+                        <div className="flex justify-center items-center space-x-2 px-2 ">
+                            {
+                                frontend.map((logo,index)=>(<img src={logo} alt="" className="w-16 lg:w-1/4" />))
+                            }
+                            
+                        </div>
+                    </div>
+
+                    <div className=" duration-200 ease-in hover:bg-gray-700 max-w-[90%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                        <div className="text-left text-orange-300">Backend</div>
+
+                        <div className="flex justify-center items-center space-x-2 px-2 ">
+                            {
+                                backtend.map((logo,index)=>(<img src={logo} alt="" className="size-16 lg:w-1/4" />))
+                            }
+                            
+                        </div>
+
+                    </div>
+
+
+                    <div className="h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[90%] w-[310px] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                        <div className="text-left text-orange-300 font-bold">Version controllers</div>
+
+                        <div className="flex justify-between items-center space-x-2 px-2 ">
+                            {
+                                versionControl.map((logo,index)=>(<img src={logo} alt="" className=" size-16 lg:w-1/4" />))
+                            }
+                            
+                        </div>
+                    </div>
+
+
+                    <div className="h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[90%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                        <div className="text-left text-orange-300 font-bold">Extras</div>
+
+                        <div className="flex justify-center items-center space-x-2 px-2 ">
+                            {
+                                extras.map((logo,index)=>(<img src={logo} alt="" className=" size-16 lg:w-1/4" />))
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
 
             </section>
 
