@@ -4,3 +4,20 @@
     filter:drop-shadow(0 15px 5px rgb(136, 10, 226));
     color:red;
 }
+
+.list:hover .item:not(:hover){
+    filter: grayscale(1) blur(10px);
+}
+
+.item:hover {
+    transform:scale(1.1)
+
+}
+
+.list{
+    @apply transition-all duration-150 
+}
+
+.item{
+    @apply transition-all duration-150 
+}

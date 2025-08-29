@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { Menu } from "lucide-react";
 import { X } from "lucide-react";
 import { useState,useEffect, version } from "react";
+import me from './assets/me.jpeg'
 import reactImg from "./assets/React.png"
 import tailwindImg from "./assets/Tailwindcss.png"
 import nextjsImg from "./assets/Nextjs.png"
@@ -64,25 +65,35 @@ export function Home(){
                 </ul>
             </div>
 
-            <section id="home" className="h-[300px] space-y-8 my-[100px]  py-8 items-center">
-                <div className="flex flex-col justify-center items-center">
-                    <h2 className="text-xl lg:text-2xl text-orange-300 ">Bonjour,  je suis</h2>
-                    <div className="text-3xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 to-indigo-400 text-transparent bg-clip-text ">Jérémie Henri</div>
-                    <div className=" font-light text-xl ">Développeur Web fullstack</div>
-                </div>
+            <section id="home" className=" space-y-4 lg:space-y-8   my-[100px]  py-8 lg:flex lg:px-4 lg:items-center lg:justify-between ">
+                <div className="flex flex-col items-center lg:block lg:w-[65%] space-y-2 lg:space-y-8 px-4 mx-12 ">
+                    <div className="">
+                        <h2 className="text-xl lg:text-4xl text-orange-300 text-center lg:text-left ">Bonjour,  je suis</h2>
+                        <div className="text-4xl lg:text-8xl font-bold bg-gradient-to-r from-blue-600 to-indigo-400 text-transparent bg-clip-text ">Jérémie Henri</div>
+                        <div className=" font-light text-xl ">Développeur Web fullstack</div>
+                    </div>
 
-                <div className="flex justify-center space-x-3 lg:space-x-4">
-                    <a href="#projects" className="bg-gradient-to-r from-blue-600 to-indigo-400 h-[30px] lg:h-[35px]
-                     flex items-center px-2 lg:px-4 rounded-full text-sm duration-200 ease-in-out hover:scale-105">Voir les projets</a>
+                    <div className="flex justify-center space-x-3 lg:space-x-4 lg:w-[45%]">
+                        <a href="#projects" className="bg-gradient-to-r from-blue-600 to-indigo-400 h-[30px] lg:h-[35px]
+                     flex items-center px-2  rounded-full text-sm duration-200 ease-in-out scale-105 hover:scale-105">Mes projets</a>
                     
-                    <a href="#contacts" className="bg-gradient-to-r  from-blue-600 to-indigo-400 h-[30px]lg:h-[35px]
+                        <a href="#contacts" className="bg-gradient-to-r  from-blue-600 to-indigo-400 h-[30px] lg:h-[35px]
                                         flex items-center px-2 lg:px-4 rounded text-sm relative after:flex
                                         after:absolute after:inset-[1px] after:rounded after:bg-gray-950
                                         after:text-white after:content-['contactez-moi'] after:justify-center
                                         after:items-center duration-200 hover:scale-105 font-medium">Me contacter</a>
                     
+                    </div>
+
                 </div>
-                
+
+                {/* My Image */}
+                <div className=' lg:w-[33%] flex items-center justify-center py-2 lg:-translate-y-6'>
+                    <div className=" size-[100px] lg:size-[170px] overflow-hidden rounded-full ">
+                        <img src={me} alt="" className="size-[100px]  lg:size-[170px] object-cover " />
+                    </div>
+
+                </div>                
             </section>
 
             <section id="about" className="h-[500px] flex justify-center items-center">
@@ -102,23 +113,23 @@ export function Home(){
                 
                
                 <div className="flex flex-col items-center lg:w-[50%]  lg:grid lg:grid-cols-2 lg:items-baseline lg:justify-center mt-6 space-y-4 lg:space-x-4">
-                    <div className="h-[120px] duration-200 ease-in hover:bg-gray-700   max-w-[90%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                    <div className="h-[120px] duration-200 ease-in  max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
                         <div className="text-left text-orange-300">Frontend</div>
                         
-                        <div className="flex justify-center items-center space-x-2 px-2 ">
+                        <div className="flex list justify-center items-center space-x-2 px-2 ">
                             {
-                                frontend.map((logo,index)=>(<img src={logo} alt="" className="w-16 lg:w-1/4" />))
+                                frontend.map((logo,index)=>(<img src={logo} alt={`${logo}`} className="w-16 lg:w-1/4 item" />))
                             }
                             
                         </div>
                     </div>
 
-                    <div className=" duration-200 ease-in hover:bg-gray-700 max-w-[90%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                    <div className=" duration-200 ease-in  max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
                         <div className="text-left text-orange-300">Backend</div>
 
-                        <div className="flex justify-center items-center space-x-2 px-2 ">
+                        <div className="flex justify-center items-center space-x-2 px-2 list ">
                             {
-                                backtend.map((logo,index)=>(<img src={logo} alt="" className="size-16 lg:w-1/4" />))
+                                backtend.map((logo,index)=>(<img src={logo} alt={`${logo}`} className="size-16 lg:w-1/4 item" />))
                             }
                             
                         </div>
@@ -126,24 +137,24 @@ export function Home(){
                     </div>
 
 
-                    <div className="h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[90%] w-[310px] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                    <div className="h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
                         <div className="text-left text-orange-300 font-bold">Version controllers</div>
 
-                        <div className="flex justify-between items-center space-x-2 px-2 ">
+                        <div className="flex justify-between items-center space-x-2 px-2 list">
                             {
-                                versionControl.map((logo,index)=>(<img src={logo} alt="" className=" size-16 lg:w-1/4" />))
+                                versionControl.map((logo,index)=>(<img src={logo} alt={`${logo}`} className=" size-16 lg:w-1/4 item" />))
                             }
                             
                         </div>
                     </div>
 
 
-                    <div className="h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[90%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                    <div className="h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
                         <div className="text-left text-orange-300 font-bold">Extras</div>
 
-                        <div className="flex justify-center items-center space-x-2 px-2 ">
+                        <div className="flex justify-center items-between space-x-2 px-2 list">
                             {
-                                extras.map((logo,index)=>(<img src={logo} alt="" className=" size-16 lg:w-1/4" />))
+                                extras.map((logo,index)=>(<img src={logo} alt={`${logo}`} className=" size-16 lg:w-1/4 item" />))
                             }
                             
                         </div>
