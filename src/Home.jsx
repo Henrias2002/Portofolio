@@ -2,10 +2,15 @@ import { Link } from "react-router-dom"
 import { Menu } from "lucide-react";
 import { X } from "lucide-react";
 import { useState,useEffect, version } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
 import me from './assets/me.jpeg'
 import reactImg from "./assets/React.png"
 import tailwindImg from "./assets/Tailwindcss.png"
 import nextjsImg from "./assets/Nextjs.png"
+
 import typescriptImg from "./assets/Typescript.png"
 import gitImg from "./assets/Git.png"
 import djangoImg from "./assets/Django.png"
@@ -18,6 +23,9 @@ import FigmaImg from './assets/Figma.png';
 import dockerImg from './assets/Docker.png';
 import gitlabImg from './assets/GitLab.png';
 import digitalImg from './assets/DigitalOcean.png';
+import devImg from './assets/dev.png';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Home(){
     const sections = ['home','about','technos','projects','contacts'];
@@ -35,7 +43,9 @@ export function Home(){
     }
     },[isOpen])
 
-    return <div className={`min-h-screen  ${isOpen ? 'overflow-hidden':''}`}>
+  
+     return <div className={`min-h-screen max-w-screen relative  ${isOpen ? 'overflow-hidden':''}`}>
+
 
             <header className="flex border-b-gray-900 shadow lg:border-b justify-between px-1 items-center h-[40px] fixed top-0 left-0 right-0 z-50 bg-gray-950  backdrop-blur-[20px]">
                 <div className="font-bold lg:text-lg  ">jeremie.<span className="text-blue-600 font-medium animate-pulse ">henri</span></div>
@@ -64,8 +74,16 @@ export function Home(){
                     }
                 </ul>
             </div>
+            
 
-            <section id="home" className=" space-y-4 lg:space-y-8   my-[100px]  py-8 lg:flex lg:px-4 lg:items-center lg:justify-between ">
+            <section id="home" className=" space-y-4 lg:space-y-8 my-[100px] py-8 lg:flex lg:px-4 lg:items-center lg:justify-between ">
+                <div className='  flex items-center justify-center lg:hidden py-2'>
+                    <div className=" size-[100px] lg:size-[170px] overflow-hidden rounded-full ">
+                        <img src={me} alt="" className="size-[100px]  lg:size-[170px] object-cover " />
+                    </div>
+                </div>     
+                
+                
                 <div className="flex flex-col items-center lg:block lg:w-[65%] space-y-2 lg:space-y-8 px-4 mx-12 ">
                     <div className="">
                         <h2 className="text-xl lg:text-4xl text-orange-300 text-center lg:text-left ">Bonjour,  je suis</h2>
@@ -73,7 +91,7 @@ export function Home(){
                         <div className=" font-light text-xl ">Développeur Web fullstack</div>
                     </div>
 
-                    <div className="flex justify-center space-x-3 lg:space-x-4 lg:w-[45%]">
+                    <div className="flex justify-center space-x-3  lg:space-x-4 lg:w-[45%]">
                         <a href="#projects" className="bg-gradient-to-r from-blue-600 to-indigo-400 h-[30px] lg:h-[35px]
                      flex items-center px-2  rounded-full text-sm duration-200 ease-in-out scale-105 hover:scale-105">Mes projets</a>
                     
@@ -88,7 +106,7 @@ export function Home(){
                 </div>
 
                 {/* My Image */}
-                <div className=' lg:w-[33%] flex items-center justify-center py-2 lg:-translate-y-6'>
+                <div className=' hidden lg:w-[33%] lg:flex items-center justify-center lg:justify-end py-2 lg:-translate-y-6'>
                     <div className=" size-[100px] lg:size-[170px] overflow-hidden rounded-full ">
                         <img src={me} alt="" className="size-[100px]  lg:size-[170px] object-cover " />
                     </div>
@@ -96,40 +114,48 @@ export function Home(){
                 </div>                
             </section>
 
-            <section id="about" className="h-[500px] flex justify-center items-center">
-                <h1 className="text-center ">About</h1>
-               
+            <section id="about" className="px-2 space-y-4 mb-[50px] lg:flex lg:flex-row lg:justify-center lg:space-x-5" >
+                <div className=" ">
+                    <h3 className=" font-bold text-lg lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent lg:mt-5 ">À Propos de moi </h3>
+                    <p className="text-medium text-xs lg:text-sm text-justify ">Développeur avec plus de 3 ans de d'expérience ainsi qu'une 
+                                                                <br className="hidden lg:block" /> maitrise des technologies web frontend et backend modernes
+                    </p>
+                    
+                </div>
 
+                <div className="flex justify-center items-center py-2 lg:-translate-y-6">
+                    <div className=" hidden lg:block   lg:size-[250px] rounded-full overflow-hidden"><img src={devImg} alt="a dev image" /></div>
+                </div>
             </section>
 
-            <section id="technos" className=" px-2  lg:flex  lg:justify-between lg:items-center lg:flex-wrap ">
+            <section id="technos" className=" px-2 mb-[50px]  lg:flex  lg:justify-between lg:items-center lg:flex-wrap ">
                 <div className="lg:h-[280px] p-2 lg:w-[45%] space-y-4 ">
                     <h3 className=" font-bold text-lg lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent lg:mt-5 ">SKILLS <br className="hidden lg:block" />& <br className="hidden lg:block" /> TECHNOS</h3>
                     
-                    <p className="text-medium text-sm text-justify ">les technologies que j'utilise dans mon quotidien de développeur <br/>
+                    <p className="text-medium text-xs lg:text-sm text-justify ">les technologies que j'utilise dans mon quotidien de développeur <br/>
                         pour la conception et l'implémentation de mes diverses projets.
                     </p>
                 </div>
                 
                
-                <div className="flex flex-col items-center lg:w-[50%]  lg:grid lg:grid-cols-2 lg:items-baseline lg:justify-center mt-6 space-y-4 lg:space-x-4">
-                    <div className="h-[120px] duration-200 ease-in  max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                <div className="flex flex-col pl-4 lg:w-[50%]  md:grid md:grid-cols-4 md:items-baseline lg:justify-center mt-6 space-y-4 lg:space-x-4">
+                    <div className="lg:h-[120px] duration-200 ease-in  max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
                         <div className="text-left text-orange-300">Frontend</div>
                         
                         <div className="flex list justify-center items-center space-x-2 px-2 ">
                             {
-                                frontend.map((logo,index)=>(<img src={logo} alt={`${logo}`} className="w-16 lg:w-1/4 item" />))
+                                frontend.map((logo,index)=>(<img src={logo} alt={`${logo}`} className=" w-[20%] max-w-16 lg:w-1/4 item" />))
                             }
                             
                         </div>
                     </div>
 
-                    <div className=" duration-200 ease-in  max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                    <div className="lg:h-[120px] duration-200 ease-in  w-[95%]  lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
                         <div className="text-left text-orange-300">Backend</div>
 
                         <div className="flex justify-center items-center space-x-2 px-2 list ">
                             {
-                                backtend.map((logo,index)=>(<img src={logo} alt={`${logo}`} className="size-16 lg:w-1/4 item" />))
+                                backtend.map((logo,index)=>(<img src={logo} alt={`${logo}`} className="w-[20%] max-w-16 lg:w-1/4 item" />))
                             }
                             
                         </div>
@@ -137,24 +163,24 @@ export function Home(){
                     </div>
 
 
-                    <div className="h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                    <div className="lg:h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
                         <div className="text-left text-orange-300 font-bold">Version controllers</div>
 
                         <div className="flex justify-between items-center space-x-2 px-2 list">
                             {
-                                versionControl.map((logo,index)=>(<img src={logo} alt={`${logo}`} className=" size-16 lg:w-1/4 item" />))
+                                versionControl.map((logo,index)=>(<img src={logo} alt={`${logo}`} className=" w-[20%] max-w-16 lg:w-1/4 item" />))
                             }
                             
                         </div>
                     </div>
 
 
-                    <div className="h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                    <div className=" lg:h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
                         <div className="text-left text-orange-300 font-bold">Extras</div>
 
                         <div className="flex justify-center items-between space-x-2 px-2 list">
                             {
-                                extras.map((logo,index)=>(<img src={logo} alt={`${logo}`} className=" size-16 lg:w-1/4 item" />))
+                                extras.map((logo,index)=>(<img src={logo} alt={`${logo}`} className=" w-[20%] max-w-16 lg:w-1/4 item" />))
                             }
                             
                         </div>
@@ -164,12 +190,12 @@ export function Home(){
             </section>
 
             <section id="projects" className="h-[500px] flex justify-center items-center">
-                <h1 className="text-center ">Projects</h1>
+                <h3 className="text-center ">Projects</h3>
 
             </section>
 
             <section id="contacts" className="h-[500px] flex justify-center items-center">
-                <h1 className="text-center ">Contacts</h1>
+                <h3 className="text-center ">Contacts</h3>
 
             </section>
 
