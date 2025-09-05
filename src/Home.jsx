@@ -7,10 +7,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 import me from './assets/me.jpeg'
+
 import reactImg from "./assets/React.png"
 import tailwindImg from "./assets/Tailwindcss.png"
 import nextjsImg from "./assets/Nextjs.png"
-
 import typescriptImg from "./assets/Typescript.png"
 import gitImg from "./assets/Git.png"
 import djangoImg from "./assets/Django.png"
@@ -23,7 +23,13 @@ import FigmaImg from './assets/Figma.png';
 import dockerImg from './assets/Docker.png';
 import gitlabImg from './assets/GitLab.png';
 import digitalImg from './assets/DigitalOcean.png';
+
 import devImg from './assets/dev.png';
+
+import dashboardImg from './assets/Dashboard.png'
+import marketplaceImg from './assets/Marketplace.png'
+import blogImg from './assets/TradingGeek.png'
+import restaurantImg from './assets/Restaurant.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,6 +39,26 @@ export function Home(){
     const backtend = [pythonImg,djangoImg,postgresImg,mysqlImg];
     const extras = [FigmaImg,dockerImg,digitalImg,linuxImg];
     const versionControl = [gitImg,githubImg,gitlabImg]
+
+    const projects = [
+        {
+            name:'An e-commerce marketplace',
+            image:marketplaceImg
+        },
+        {   
+            name:'A dashboard for an e-commerce shop ',
+            image:dashboardImg
+        },
+        {
+            name:'A trading blog powered by AI',
+            image:blogImg
+        },
+        {
+            name:'A modern restaurant website',
+            image:restaurantImg
+        },
+        
+    ]
     const [isOpen,setIsOpen] = useState(false);
 
     useEffect(()=>{
@@ -47,7 +73,7 @@ export function Home(){
      return <div className={`min-h-screen max-w-screen relative  ${isOpen ? 'overflow-hidden':''}`}>
 
 
-            <header className="flex border-b-gray-900 shadow lg:border-b justify-between px-1 items-center h-[40px] fixed top-0 left-0 right-0 z-50 bg-gray-950  backdrop-blur-[20px]">
+            <header className="flex border-b-gray-900 shadow lg:border-b justify-between px-1 items-center h-[40px] fixed top-0 left-0 right-0 z-50 bg-gray-950 backdrop-blur-[20px]">
                 <div className="font-bold lg:text-lg  ">jeremie.<span className="text-blue-600 font-medium animate-pulse ">henri</span></div>
 
                 <nav className="w-1/2 pr-2 hidden lg:block">
@@ -138,7 +164,7 @@ export function Home(){
                 </div>
                 
                
-                <div className="flex flex-col pl-4 lg:w-[50%]  md:grid md:grid-cols-4 md:items-baseline lg:justify-center mt-6 space-y-4 lg:space-x-4">
+                <div className="flex flex-col pl-4 lg:w-[50%] lg:grid lg:grid-cols-2  md:grid md:grid-cols-4 md:items-baseline lg:justify-center mt-6 space-y-4 lg:space-x-4">
                     <div className="lg:h-[120px] duration-200 ease-in  max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
                         <div className="text-left text-orange-300">Frontend</div>
                         
@@ -150,7 +176,7 @@ export function Home(){
                         </div>
                     </div>
 
-                    <div className="lg:h-[120px] duration-200 ease-in  w-[95%]  lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                    <div className="lg:h-[120px] duration-200 ease-in  w-[95%] p-2 bg-slate-900 shadow rounded space-y-2">
                         <div className="text-left text-orange-300">Backend</div>
 
                         <div className="flex justify-center items-center space-x-2 px-2 list ">
@@ -189,13 +215,27 @@ export function Home(){
 
             </section>
 
-            <section id="projects" className="h-[500px] flex justify-center items-center">
-                <h3 className="text-center ">Projects</h3>
+            <section id="projects" className="px-2 space-y-4 mb-[50px] py-5 md:relative ">
+                <h3 className="font-bold text-lg text-center lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent mb-12 lg:mb-24">My projects</h3>
+
+                <div className={`grid grid-cols-1 place-items-center md:grid md:mx-6 md:grid-cols-2 md:place-items-center lg:flex lg:justify-center lg:items-center md:gap-4 space-y-4 md:space-y-0 px-2  `}>
+                    {
+                        projects.map((project,index)=>(
+                            <div key={index} className={`bg-slate-900  h-[120px] w-[90%] max-w-sm md:w-[350px] lg:h-[230px] rounded hover:scale-105 break-inside-avoid group relative overflow-hidden cursor-pointer `}>
+                                <img src={project.image} alt={project.name} className="h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105 " />
+
+                                <div className="absolute inset-0 p-4 flex items-end opacity-0 bg-black/20 transform-opacity duration-300 group-hover:opacity-100">
+                                    <p className="text-sm text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-300  ">{project.name}</p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
 
             </section>
 
             <section id="contacts" className="h-[500px] flex justify-center items-center">
-                <h3 className="text-center ">Contacts</h3>
+                <h3 className="font-bold text-lg lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent lg:mt-5">Contacts</h3>
 
             </section>
 
