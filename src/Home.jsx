@@ -1,67 +1,18 @@
-import { Link } from "react-router-dom"
 import { Menu } from "lucide-react";
 import { X } from "lucide-react"
-
-
-
 import { useState,useEffect, version } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
-import me from './assets/me.jpeg'
-
-import reactImg from "./assets/React.png"
-import tailwindImg from "./assets/Tailwindcss.png"
-import nextjsImg from "./assets/Nextjs.png"
-import typescriptImg from "./assets/Typescript.png"
-import gitImg from "./assets/Git.png"
-import djangoImg from "./assets/Django.png"
-import pythonImg from "./assets/Python.png"
-import githubImg from "./assets/GitHub.png"
-import postgresImg from "./assets/PostgresSQL.png"
-import mysqlImg from "./assets/MySQL.png"
-import linuxImg from "./assets/Linux.png"
-import FigmaImg from './assets/Figma.png';
-import dockerImg from './assets/Docker.png';
-import gitlabImg from './assets/GitLab.png';
-import digitalImg from './assets/DigitalOcean.png';
-
+import {frontend,backend,extras,versionControl,projects} from './utils'
 import devImg from './assets/dev.png';
-
-import dashboardImg from './assets/Dashboard.png'
-import marketplaceImg from './assets/Marketplace.png'
-import blogImg from './assets/TradingGeek.png'
-import restaurantImg from './assets/Restaurant.png'
+import me from './assets/me.jpeg'
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 export function Home(){
     const sections = ['home','about','technos','projects','contacts'];
-    const frontend = [tailwindImg,typescriptImg,reactImg,nextjsImg];
-    const backtend = [pythonImg,djangoImg,postgresImg,mysqlImg];
-    const extras = [FigmaImg,dockerImg,digitalImg,linuxImg];
-    const versionControl = [gitImg,githubImg,gitlabImg]
-
-    const projects = [
-        {
-            name:'A modern restaurant website',
-            image:restaurantImg
-        },
-        {
-            name:'An e-commerce marketplace',
-            image:marketplaceImg
-        },
-        {
-            name:'A trading blog powered by AI',
-            image:blogImg
-        },
-        {   
-            name:'A dashboard for an e-commerce shop ',
-            image:dashboardImg
-        },
-        
-    ]
     const [isOpen,setIsOpen] = useState(false);
 
     useEffect(()=>{
@@ -74,21 +25,17 @@ export function Home(){
 
   
      return <div className={`min-h-screen max-w-screen relative  ${isOpen ? 'overflow-hidden':''}`}>
-
-
             <header className="flex border-b-gray-900 shadow lg:border-b justify-between px-1 items-center h-[40px] fixed top-0 left-0 right-0 z-50 bg-gray-950 backdrop-blur-[20px]">
-                <div className="font-bold lg:text-lg  ">jeremie.<span className="text-blue-600 font-medium animate-pulse ">henri</span></div>
+                <div className="font-bold lg:text-lg  ">jeremie.<span className="text-blue-600 font-medium animate-pulse ">Henri</span></div>
 
                 <nav className="w-1/2 pr-2 hidden lg:block">
                     <ul className="flex justify-between text-sm space-x-2 w-full capitalize">
                         {
                             sections.map((section,index)=>(<li key={index}><a href={`#${section}`} className="duration-200 ease-in-out shadow-lg hover:drop-shadow-[0_0_20px_#00acee] hover:text-[#00acee] hover:tracking-wider font-medium ">{section}</a></li>))
                         }
-                      
                     </ul>
                 </nav>
 
-                
                 <button className={`size-6 cursor-pointer lg:hidden ${isOpen?'hidden':''}`}  onClick={()=>setIsOpen(!isOpen)} > <Menu /></button>
             </header>
 
@@ -113,7 +60,7 @@ export function Home(){
                         <div className=" font-light text-lg text-center lg:text-left ">Développeur Web fullstack</div>
 
                         <div className='flex lg:inline-flex gap-2 items-center flex-col md:flex-row py-3'>
-                            <a href="#" className="px-3 flex justify-center items-center bg-gradient-to-r from-blue-600 to-blue-400 p-1 rounded-full text-sm font-semibold duration-200 transition-all ease-in-out hover:scale-x-105 hover:drop-shadow-[0_0_10px_#4387ee]">Download CV</a>
+                            <a href="#" className="px-3 flex justify-center items-center bg-gradient-to-r from-blue-600 to-blue-400 p-1 rounded-full text-sm font-semibold duration-200 transition-all ease-in-out hover:scale-x-105 hover:drop-shadow-[0_0_10px_#4387ee]">Download my CV</a>
                             
                             <div className="flex px-2 gap-3 justify-center items-center">
                                 <a href="#" className='duration-200 ease-in-out shadow-lg hover:drop-shadow-[0_0_10px_#f56ffa] hover:bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d62976_60%,#285AEB_90%)] p-1 flex justify-center items-center  rounded-full'>
@@ -166,73 +113,78 @@ export function Home(){
                 </div>                   
             </section>
 
-            <section id="about" className="px-2 space-y-4 mb-[50px] lg:flex lg:flex-row lg:justify-center lg:space-x-5" >
-                <div className=" ">
-                    <h3 className=" font-bold text-lg lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent lg:mt-5 ">À Propos de moi </h3>
-                    <p className="text-medium text-xs lg:text-sm text-justify ">Développeur avec plus de 3 ans de d'expérience ainsi qu'une 
-                                                                <br className="hidden lg:block" /> maitrise des technologies web frontend et backend modernes
+            <section id="about" className="px-2 space-y-4 mb-[50px] lg:flex lg:flex-row lg:justify-center lg:space-x-12" >
+                <div className="space-y-4">
+                    <h3 className=" font-bold text-lg lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent text-center lg:text-left lg:mt-5 ">À Propos de moi </h3>
+                    <p className=" font-light text-xs lg:text-sm text-center lg:text-justify "> Je suis développeur web, avec plus de 3 ans d'expérience ainsi qu'une 
+                                                                <br className="hidden lg:block" /> maitrise des technologies web (frontend et backend) modernes.
                     </p>
                     
                 </div>
 
                 <div className="flex justify-center items-center py-2 lg:-translate-y-6">
-                    <div className=" hidden lg:block   lg:size-[250px] rounded-full overflow-hidden"><img src={devImg} alt="a dev image" /></div>
+                    <div className=" hidden lg:block   lg:size-[180px] rounded-full overflow-hidden"><img src={devImg} alt="a dev image" /></div>
                 </div>
             </section>
 
-            <section id="technos" className=" px-2 mb-[50px]  lg:flex  lg:justify-between lg:items-center lg:flex-wrap ">
+            <section id="technos" className=" px-4 mb-[50px]  lg:flex  lg:justify-center lg:items-center lg:flex-wrap ">
                 <div className="lg:h-[280px] p-2 lg:w-[45%] space-y-4 ">
-                    <h3 className=" font-bold text-lg lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent lg:mt-5 ">SKILLS <br className="hidden lg:block" />& <br className="hidden lg:block" /> TECHNOS</h3>
+                    <h3 className=" font-bold text-lg lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent text-center lg:text-left lg:mt-5 ">SKILLS <br className="hidden lg:block" />& <br className="hidden lg:block" /> TECHNOS</h3>
                     
-                    <p className="text-medium text-xs lg:text-sm text-justify ">les technologies que j'utilise dans mon quotidien de développeur <br/>
+                    <p className="font-light text-xs lg:text-sm text-center lg:text-justify ">les technologies que j'utilise dans mon quotidien de développeur <br/>
                         pour la conception et l'implémentation de mes diverses projets.
                     </p>
                 </div>
                 
                
                 <div className="flex flex-col pl-4 lg:w-[50%] lg:grid lg:grid-cols-2  md:grid md:grid-cols-4 md:items-baseline lg:justify-center mt-6 space-y-4 lg:space-x-4">
-                    <div className="lg:h-[120px] duration-200 ease-in  max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
-                        <div className="text-left text-orange-300">Frontend</div>
+                    <div className="lg:h-[110px] duration-200 ease-in  max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                        <div className="text-left text-sm font-light">Frontend</div>
                         
                         <div className="flex list justify-center items-center space-x-2 px-2 ">
                             {
-                                frontend.map((logo,index)=>(<img src={logo} alt={`${logo}`} className=" w-[20%] max-w-16 lg:w-1/4 item" />))
+                                frontend.map((element,index)=>(<a href={element.url} key={index} target="blank" className={` w-[20%] max-w-16 relative lg:w-1/4 item text-xs`}>
+                                    <img src={element.image} alt={`${element.name}`}  /></a>))
                             }
                             
                         </div>
                     </div>
 
-                    <div className="lg:h-[120px] duration-200 ease-in  w-[95%] p-2 bg-slate-900 shadow rounded space-y-2">
-                        <div className="text-left text-orange-300">Backend</div>
+                    <div className="lg:h-[110px] duration-200 ease-in  w-[95%] p-2 bg-slate-900 shadow rounded space-y-2">
+                        <div className="text-left text-sm font-light">Backend</div>
 
                         <div className="flex justify-center items-center space-x-2 px-2 list ">
                             {
-                                backtend.map((logo,index)=>(<img src={logo} alt={`${logo}`} className="w-[20%] max-w-16 lg:w-1/4 item" />))
+                                backend.map((element,index)=>(<a href={element.url} key={index} target="blank" className={` w-[20%] max-w-16 relative lg:w-1/4 item text-xs`}>
+                                    <img src={element.image} alt={`${element.name}`}  /></a>))
                             }
+                            
                             
                         </div>
 
                     </div>
 
 
-                    <div className="lg:h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
-                        <div className="text-left text-orange-300 font-bold">Version controllers</div>
+                    <div className="lg:h-[110px] duration-200 ease-in hover:bg-gray-700 max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                        <div className="text-left text-sm font-light">Version control & collabs</div>
 
                         <div className="flex justify-between items-center space-x-2 px-2 list">
                             {
-                                versionControl.map((logo,index)=>(<img src={logo} alt={`${logo}`} className=" w-[20%] max-w-16 lg:w-1/4 item" />))
+                                versionControl.map((element,index)=>(<a href={element.url} key={index} target="blank" className={` w-[20%] max-w-16 relative lg:w-1/4 item text-xs`}>
+                                    <img src={element.image} alt={`${element.name}`}  /></a>))
                             }
                             
                         </div>
                     </div>
 
 
-                    <div className=" lg:h-[120px] duration-200 ease-in hover:bg-gray-700 max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
-                        <div className="text-left text-orange-300 font-bold">Extras</div>
+                    <div className=" lg:h-[110px] duration-200 ease-in hover:bg-gray-700 max-w-[95%] lg:w-[500px] p-2 bg-slate-900 shadow rounded space-y-2">
+                        <div className="text-left text-sm font-light">Extras</div>
 
                         <div className="flex justify-center items-between space-x-2 px-2 list">
                             {
-                                extras.map((logo,index)=>(<img src={logo} alt={`${logo}`} className=" w-[20%] max-w-16 lg:w-1/4 item" />))
+                                extras.map((element,index)=>(<a href={element.url} key={index} target="blank" className={` w-[20%] max-w-16 relative lg:w-1/4 item text-xs`}>
+                                    <img src={element.image} alt={`${element.name}`}  /></a>))
                             }
                             
                         </div>
@@ -276,8 +228,6 @@ export function Home(){
                             
 
                         </form>
-                    
-
             </section>
 
             
