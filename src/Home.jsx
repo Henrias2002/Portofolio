@@ -242,12 +242,12 @@ export function Home(){
             </section>
 
             <section id="projects" className="px-2 space-y-4 mb-[50px] py-5 md:relative ">
-                <h3 className="font-bold text-lg text-center lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent mb-12 lg:mb-24">My projects</h3>
+                <h3 className="font-bold text-lg text-center lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent mb-12 ">My projects</h3>
 
                 <div className={`grid grid-cols-1 place-items-center md:grid md:mx-6 md:grid-cols-2 md:place-items-center lg:flex lg:justify-center lg:items-center md:gap-4 space-y-4 md:space-y-0 px-2  `}>
                     {
                         projects.map((project,index)=>(
-                            <div key={index} className={`bg-slate-900  h-[120px] w-[90%] max-w-sm md:w-[350px] lg:h-[230px] rounded hover:scale-105 break-inside-avoid group relative overflow-hidden cursor-pointer `}>
+                            <div key={index} className={`bg-slate-900  h-[120px] w-[90%] max-w-sm md:w-[350px] lg:h-[200px] rounded hover:scale-105 break-inside-avoid group relative overflow-hidden cursor-pointer `}>
                                 <img src={project.image} alt={project.name} className="h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105 " />
 
                                 <div className="absolute inset-0 p-4 flex items-end opacity-0 bg-black/20 transform-opacity duration-300 group-hover:opacity-100">
@@ -260,8 +260,23 @@ export function Home(){
 
             </section>
 
-            <section id="contacts" className="h-[500px] flex justify-center items-center">
-                <h3 className="font-bold text-lg lg:text-4xl bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent lg:mt-5">Contacts</h3>
+            <section id="contacts" className="p-4  ">
+                
+
+                  
+                        <form className=" flex flex-col justify-center space-y-6 shadow-xl h-[300px] relative p-2 md:w-[350px] bg-slate-900/40 backdrop-blur-[10px] mx-auto rounded-lg ">
+                            <h3 className="text-xl text-center font-bold">Get in touch</h3>
+
+                            <input type="email" placeholder='Your email' className="border border-gray-500 rounded px-1 pt-[1px]" />
+                            <textarea name="contact-area" placeholder="your message" className="border border-gray-500  p-1 h-[100px]"></textarea>
+                        
+                            <button className="bg-gradient-to-r from-blue-600 to-blue-400 inline-block rounded cursor-pointer font-semibold text-sm py-1
+                             transition-scale duration-200 ease-in hover:scale-x-105 w-[95%] mx-auto ">Send</button>
+                            
+                            
+
+                        </form>
+                    
 
             </section>
 
