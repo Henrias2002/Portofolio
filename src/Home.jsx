@@ -11,7 +11,7 @@ import About from "./components/pages/About";
 import Technos from "./components/pages/Technos";
 import Projects from "./components/pages/Projects";
 import Contact from "./components/pages/Contact";
-
+import StarsBackground from "./components/ui/.StarsBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,6 +32,7 @@ export function Home(){
   
      return <div className={`min-h-screen max-w-screen relative  ${isOpen ? 'overflow-hidden':''}`}>
             <NavBar isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <StarsBackground/>
 
             <div className={`fixed duration-300 ease transition-all lg:hidden  ease-in-out w-full h-full ${isOpen?'translate-y-0 z-50':'-translate-y-[500px] -z-10'}  bg-gray-800/400 backdrop-blur-lg`}>
                 <div className="relative ">

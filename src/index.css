@@ -41,3 +41,32 @@
              after:absolute after:-bottom-5 after:flex after:justify-center after:items-center after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-200
              after:font-semibold after:delay-75
 }
+.star{
+    @apply absolute rounded-full bg-white;
+
+    box-shadow: 0 0 10px 2px rgba(255,255,255,0.4);
+}
+
+.meteor{
+    @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
+    box-shadow: 0 0 10px 5px rgba(255,255,255,0.3);
+    animation: meteorite infinite linear;
+}
+
+
+@keyframes meteorite {
+    0%{
+        transform:rotate(215deg) translateX(0);
+        opacity:1;
+    }
+    70%{
+        opacity: 1;
+
+    }
+    100%{
+        transform:rotate(215deg) translateX(-500px);
+        opacity:0;
+
+    }
+    
+}
