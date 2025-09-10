@@ -13,7 +13,7 @@ function Hero(){
                                 
                     <div className=" font-light text-lg text-center lg:text-left ">Développeur Web fullstack</div>
         
-                    <div className='flex lg:inline-flex gap-2 items-center flex-col md:flex-row py-3'>
+                    <div className='flex lg:inline-flex gap-x-2 gap-y-5 items-center flex-col-reverse md:flex-row py-3'>
                         <DownloadButton/>
                         <div className="flex px-2 gap-3 justify-center items-center">
                                         
@@ -39,7 +39,7 @@ function Hero(){
                          after:bg-[conic-gradient(transparent,transparent,transparent,#09b1f3)]'>
         
                 <div className="relative z-10 size-full flex justify-center items-center overflow-hidden rounded-full ">
-                    <img src={me} alt="" className="size-full absolute lg:size-full object-cover " />
+                    <img src={me} alt="" className="size-full absolute brightness-100 contrast-150  lg:size-full object-cover " />
                 </div>
             </div>                   
         </section>)

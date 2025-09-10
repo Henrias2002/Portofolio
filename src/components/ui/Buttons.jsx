@@ -44,6 +44,6 @@ export function GithubButton(){
 
 export function DownloadButton(){
 
-    return <a href="#" className="px-3 flex justify-center items-center bg-gradient-to-r from-blue-600 to-blue-400 p-1 rounded-full text-sm font-semibold duration-200 transition-all ease-in-out hover:scale-x-105 hover:drop-shadow-[0_0_10px_#4387ee]">Download my CV</a>
+    return <a href="#" className="px-3 flex justify-center items-center bg-gradient-to-r from-blue-600 to-blue-400 p-1 rounded-full text-sm font-semibold duration-200 transition-all ease-in-out hover:scale-x-105 hover:drop-shadow-[0_0_10px_#4387ee]">Download CV</a>
                             
 }
